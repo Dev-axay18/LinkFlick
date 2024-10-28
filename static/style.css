@@ -1,0 +1,158 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f8;
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 90px; /* Increased padding for more space */
+    border-radius: 15px;
+    box-shadow: 0.5px  10px 30px rgba(0, 0, 0, 0.371);
+    max-width: 600px; /* Increased max-width for a larger container */
+    width: 90%; /* Container will take up 90% of the screen width */
+}
+
+h1 {
+    font-size: 2.5em; /* Increased font size */
+    color: #333;
+}
+
+p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.input-area, .output-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px; /* Increased margin for more space */
+}
+
+input[type="text"] {
+    width: 75%; /* Increased width for input */
+    padding: 15px; /* Increased padding for input */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.2em; /* Increased font size */
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #66a3ff;
+    outline: none;
+}
+input[type="text"]:hover{
+    border-color: #4e8be6;
+    outline: none;
+    box-shadow: 0.3px  10px 30px rgba(0, 0, 0, 0.108);
+    transition: background-color 0.5s ease
+}
+
+
+button {
+    padding: 8px 20px; /* Increased button padding */
+    font-size: 1.2em; /* Increased font size */
+    color: #fff;
+    background-color: #4a90e2;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+}
+
+button:hover {
+    background-color: #357ab8;
+    box-shadow: 0.3px  10px 30px rgba(0, 0, 0, 0.108);
+    
+}
+
+.output-area {
+    margin-top: 20px;
+    display: none;
+}
+
+.output-area p {
+    margin-right: 10px;
+    color: #333;
+}
+
+.output-area input[type="text"] {
+    width: 75%; /* Increased width for output */
+    padding: 15px; /* Increased padding for output */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.2em; /* Increased font size */
+    color: #333;
+}
+.bg {
+    animation:slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+    bottom:0;
+    left:-50%;
+    opacity:.5;
+    position:fixed;
+    right:-50%;
+    top:0;
+    z-index:-1;
+  }
+  
+  .bg2 {
+    animation-direction:alternate-reverse;
+    animation-duration:4s;
+  }
+  
+  .bg3 {
+    animation-duration:5s;
+  }
+  
+  /* .content {
+    background-color:rgba(255,255,255,.8);
+    border-radius:.25em;
+    box-shadow:0 0 .25em rgba(0,0,0,.25);
+    box-sizing:border-box;
+    left:50%;
+    padding:10vmin;
+    position:fixed;
+    text-align:center;
+    top:50%;
+    transform:translate(-50%, -50%);
+  }
+   */
+  /* h1 {
+    font-family:monospace;
+  } */
+  
+  @keyframes slide {
+    0% {
+      transform:translateX(-25%);
+    }
+    100% {
+      transform:translateX(25%);
+    }
+  }
+  footer {
+    text-align: center;
+    margin-top: 800px;
+    margin-left: 0px;
+    padding: 10px 0; /* Padding for the footer */
+    /* background-color: #4a90e2; Same color as button for consistency */
+    color: white;
+    position: absolute; /* Position relative to stay at the bottom */
+}
+footer p{
+    color:black;
+}

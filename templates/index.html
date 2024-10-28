@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkFlick</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" href="/static/broken-link-10495.png" type="image/png">
+</head>
+<body>
+    <div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+    <div class="container">
+        <h1>URL Shortener</h1>
+        <p>Paste a long URL to shorten it</p>
+        <div class="input-area">
+            <input type="text" id="urlInput" placeholder="Enter your long URL here..." >
+            <button id="shortenButton">Shorten URL</button>
+        </div>
+        <div class="output-area" id="outputArea">
+            <p> Shortened URL:</p>
+            <input type="text" id="shortUrlOutput" readonly>
+            <button onclick="copyUrl()">Copy</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("shortenButton").onclick = async function() {
+            const longUrl = document.getElementById("urlInput").value;
+
+            if (longUrl) {
+                try {
+                    // Send the long URL to the backend for shortening
+                    const response = await fetch('/shorten', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ url: longUrl })
+                    });
+                    
+                    if (response.ok) {
+                        const data = await response.json();
+                        document.getElementById("shortUrlOutput").value = data.short_url;
+                        document.getElementById("outputArea").style.display = "flex";
+                    } else {
+                        alert("Failed to shorten URL. Please try again.");
+                    }
+                } catch (error) {
+                    console.error("Error:", error);
+                    alert("Error occurred while shortening the URL.");
+                }
+            } else {
+                alert("Please enter a valid URL.");
+            }
+        };
+
+        function copyUrl() {
+            const shortUrl = document.getElementById("shortUrlOutput");
+            shortUrl.select();
+            document.execCommand("copy");
+            alert("Shortened URL copied to clipboard!");
+        }
+    </script>
+    <footer>
+        <p>&copy; 2024 Akshay Kale</p>
+    </footer>
+</body>
+</html>
